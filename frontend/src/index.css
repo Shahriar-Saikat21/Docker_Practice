@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+    
+}
+
+@layer components {
+    .btn {
+        @apply text-lg text-[#ffffff]  border-2 font-bold bg-linear-45 from-green-500 to-green-800 my-5 py-2 
+        block px-2 rounded-md hover:text-amber-300 cursor-pointer
+        hover:border-2 hover:border-[#ffffff] md:w-1/2 w-full transition duration-300 ease-in;
+    }
+
+    .btn-Delete {
+        @apply text-lg text-[#eb491c] border-2 font-bold bg-white my-5 py-2 
+          block px-2 rounded-md hover:bg-[#eb491c] hover:text-[#ffffff]  
+          hover:border-2 hover:border-[#ffffff] md:w-1/2 w-full transition duration-300 ease-in ;
+      }
+    
+    .btn-Cancel {
+    @apply text-lg text-[#8a8c8a] border-2 font-bold bg-white my-5 py-2 
+        block px-2 rounded-md hover:bg-[#8a8c8a] hover:text-[#ffffff]  
+        hover:border-2 hover:border-[#ffffff] md:w-1/2 w-full transition duration-300 ease-in ;
+    }
+      
+    .formInput {
+    @apply text-lg px-2 py-3 w-full focus:outline-green-600 mb-2 rounded-md border-1 border-gray-300;
+    }
+      
+    .mobileNav{
+    @apply text-xl font-bold text-[#ffffff] cursor-pointer;
+    }
+      
+    .pcNav{
+    @apply text-xl font-bold text-[#ffffff] cursor-pointer hover:text-yellow-400 transition ease-in-out duration-500;
+    }
+  }
+
