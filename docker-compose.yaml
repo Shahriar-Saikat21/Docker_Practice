@@ -25,6 +25,36 @@ services:
     networks:
       - my_network
 
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: nest_backend
+    env_file:
+      - ./backend/.env  # Load backend-specific environment variables
+    ports:
+      - "3001:3000"   # Map container port 3000 to host port 3001
+    volumes:
+      - ./backend:/app       # Mount the local backend folder for live changes
+      - /app/node_modules     # Prevent overwriting node_modules with an empty host folder
+    networks:
+      - my_network
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app       # Mount the local frontend folder for live changes
+      - /app/node_modules     # Prevent overwriting node_modules with an empty host folder
+    networks:
+      - my_network
+
 volumes:
   pgdata:
     driver: local
